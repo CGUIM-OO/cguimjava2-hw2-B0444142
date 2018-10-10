@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * @author TODO: please add student ID and name here
+ * @author TODO: B0444142¡@³¢¨ÎøÊ
  * Try to write some comments for your codes (methods, 15 points)
  */
 public class HW2 {
@@ -26,8 +26,8 @@ public class HW2 {
 	}
 	/**
 	 * This method is used for checking your result, not a part of your HW2
-	 * @param allCards æ‰€æœ‰çš„ç‰Œ
-	 * @param nDeck ç¸½å…±æœ‰å¹¾å‰¯ç‰Œ
+	 * @param allCards ©Ò¦³ªºµP
+	 * @param nDeck Á`¦@¦³´X°ÆµP
 	 * @return
 	 */
 	private static boolean isAllCardsCorrect(ArrayList<Card> allCards,int nDeck){
@@ -65,12 +65,26 @@ public class HW2 {
 }
 /**
  * Description: TODO: please add description here
+ * ¥ý¥ÎArrayList·s¼W¤@­Ócardsª«¥ó¡A
+ * ²Ä¤@¼h°j°é¬O¦³´X°ÆµP¡A²Ä¤G¼h¬O4­Óªá¦â¡A²Ä¤T¼h¬O¨C­Óªá¦â¦³13±iµP¡A 
+ * ³Ì«á©ñ¤Jcardsª«¥ó¸Ì­±¡C
  */
 class Deck{
 	private ArrayList<Card> cards;
 	//TODO: Please implement the constructor (30 points)
 	public Deck(int nDeck){
 		cards=new ArrayList<Card>();
+		for(int z=1;z<nDeck+1;z++)
+		{
+		for(int y=1;y<5;y++)
+		{
+		for (int x=1;x<14;x++)
+		{
+			Card card=new Card(y,x);
+			cards.add(card);
+		}
+		}
+		}
 		//1 Deck have 52 cards, https://en.wikipedia.org/wiki/Poker
 		//Hint: Use new Card(x,y) and 3 for loops to add card into deck
 		//Sample code start
@@ -83,6 +97,11 @@ class Deck{
 	public void printDeck(){
 		//Hint: print all items in ArrayList<Card> cards, 
 		//TODO: please implement and reuse printCard method in Card class (5 points)
+		for(int i =0;i<cards.size();i++)
+		{
+		Card card= cards.get(i);
+		card.printCard();
+		}
 
 	}
 	public ArrayList<Card> getAllCards(){
@@ -91,6 +110,8 @@ class Deck{
 }
 /**
  * Description: TODO: please add description here
+ * «Å§isuit ¤Îrank¡As©Mr·|±qDeckÃþ§O¸Ì±o¨ì¡A
+ * printCard ¤èªk¬O¥Î getSuit()¤ÎgetRank()¨ú±osuit©Mrankªº­È¨Ã¥B¦L¥X¨Ó¡C
  */
 class Card{
 	private int suit; //Definition: 1~4, Clubs=1, Diamonds=2, Hearts=3, Spades=4
@@ -106,7 +127,8 @@ class Card{
 	//TODO: 1. Please implement the printCard method (20 points, 10 for suit, 10 for rank)
 	public void printCard(){
 		//Hint: print (System.out.println) card as suit,rank, for example: print 1,1 as Clubs Ace
-
+		System.out.println(getSuit()+","+getRank());
+		
 	}
 	public int getSuit(){
 		return suit;
